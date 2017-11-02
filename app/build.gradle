@@ -1,0 +1,68 @@
+//region PLUGINS
+apply plugin: 'com.android.application'
+//endregion
+
+//region DEPENDENCIES
+apply from: 'dependencies.gradle'
+//endregion
+
+//region ANDROID
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "com.az.testing"
+        minSdkVersion 20
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    //region BUILD_TYPES
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //endregion
+
+    //region SOURCE_SETS
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main']
+        }
+        mock {
+            java.srcDirs = ['src/mock']
+        }
+        real {
+            java.srcDirs = ['src/real']
+        }
+    }
+    //endregion
+
+    //region SOURCE_SETS
+    def defaultDim = 'default'
+    flavorDimensions defaultDim
+
+    productFlavors {
+        mock {
+            applicationIdSuffix ".test"
+            versionNameSuffix ".test"
+            dimension defaultDim
+        }
+        real {
+            dimension defaultDim
+        }
+    }
+    //endregion
+
+    //region COMPILE_OPTIONS
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //endregion
+}
+//endregion
