@@ -1,13 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@color/colorAccent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:background="@android:color/white">
 
     <ImageView
-        android:id="@+id/fragment_main_image"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"/>
+        android:id="@+id/fragment_main_user_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@android:color/background_dark"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/fragment_main_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Name:"
+        app:layout_constraintStart_toEndOf="@+id/fragment_main_user_image"
+        app:layout_constraintTop_toTopOf="@+id/fragment_main_user_image"/>
+
+    <TextView
+        android:id="@+id/fragment_main_user_name_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/fragment_main_user_name"
+        app:layout_constraintTop_toTopOf="@+id/fragment_main_user_name"
+        tools:text="Vasiliy"/>
+
+    <TextView
+        android:id="@+id/fragment_main_user_surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Surname:"
+        app:layout_constraintStart_toEndOf="@+id/fragment_main_user_image"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_main_user_name"/>
+
+    <TextView
+        android:id="@+id/fragment_main_user_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Age:"
+        app:layout_constraintStart_toEndOf="@+id/fragment_main_user_image"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_main_user_surname"/>
+
+    <TextView
+        android:id="@+id/fragment_main_user_surname_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/fragment_main_user_surname"
+        app:layout_constraintTop_toTopOf="@+id/fragment_main_user_surname"
+        tools:text="Ivanov"/>
+
+    <TextView
+        android:id="@+id/fragment_main_user_age_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/fragment_main_user_age"
+        app:layout_constraintTop_toTopOf="@+id/fragment_main_user_age"
+        tools:text="49"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_main_user_cars"
+        android:layout_width="214dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_main_user_image"/>
+
+</android.support.constraint.ConstraintLayout>

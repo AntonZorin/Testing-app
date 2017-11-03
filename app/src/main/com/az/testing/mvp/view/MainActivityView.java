@@ -11,5 +11,5 @@ import com.az.testing.mvp.model.User;
 public interface MainActivityView extends BaseMvpView {
     void showUser(User user);
 
-    void showUserImage(Bitmap image);
+    void showToken(String token);
 }

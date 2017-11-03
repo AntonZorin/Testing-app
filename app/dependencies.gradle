@@ -1,11 +1,12 @@
 dependencies {
 
     // region CONSTANTS
+    def sdkVersion = '26.0.2'
     def daggerVer = '2.11'
     def okHttpVer = '3.9.0'
     def retrofitVer = '2.3.0'
     def moxyVer = '1.5.3'
-    def butterKifeVer = '8.8.1'
+    def butterKnifeVer = '8.8.1'
 
     //endregion
 
@@ -21,8 +22,9 @@ dependencies {
     //endregion
 
     // region SUPPORT
-    implementation 'com.android.support:appcompat-v7:26.+'
+    implementation "com.android.support:appcompat-v7:$sdkVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation "com.android.support:recyclerview-v7:$sdkVersion"
     //endregion
 
     //region DAGGER
@@ -51,6 +53,9 @@ dependencies {
 
     //GSON
     implementation "com.google.code.gson:gson:2.8.2"
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
     //endregion
 
     //region MVP
@@ -65,7 +70,7 @@ dependencies {
     //endregion
 
     //region BUTTER_KNIFE
-    implementation "com.jakewharton:butterknife:$butterKifeVer"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKifeVer"
+    implementation "com.jakewharton:butterknife:$butterKnifeVer"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVer"
     //endregion
 }

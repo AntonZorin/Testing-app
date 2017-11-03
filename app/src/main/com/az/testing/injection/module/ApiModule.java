@@ -6,7 +6,10 @@ import com.az.testing.ApiManagerImpl;
 import com.az.testing.api.ApiManager;
 import com.az.testing.api.ApiService;
 import com.az.testing.common.Constants;
+import com.az.testing.common.PrefManager;
 import com.az.testing.injection.scopes.ApplicationScope;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.io.File;
@@ -39,8 +42,8 @@ public class ApiModule {
 
     @Provides
     @Singleton
-    ApiManager provideApiManager(ApiService apiService, Context context) {
-        return new ApiManagerImpl(apiService, context);
+    ApiManager provideApiManager(ApiService apiService, Context context, PrefManager prefManager) {
+        return new ApiManagerImpl(apiService, context, prefManager);
     }
 
     @Provides
@@ -59,5 +62,11 @@ public class ApiModule {
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build();
         return client;
+    }
+
+    @Provides
+    @Singleton
+    Gson provideGson() {
+        return new GsonBuilder().create();
     }
 }
