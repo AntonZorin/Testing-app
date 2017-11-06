@@ -10,6 +10,8 @@ import com.google.gson.annotations.SerializedName;
 public class Response {
     @SerializedName("success")
     private boolean isSuccess;
+    @SerializedName("error")
+    private ErrorModel error;
 
     public ErrorModel getError() {
         return error;
@@ -19,8 +21,6 @@ public class Response {
         this.error = error;
     }
 
-    @SerializedName("error")
-    private ErrorModel error;
 
     public boolean isSuccess() {
         return isSuccess;

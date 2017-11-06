@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class LoginResponse extends Response {
+
     @SerializedName("authorization_token")
     private String token;
 

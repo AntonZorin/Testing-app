@@ -1,6 +1,7 @@
 package com.az.testing;
 
 import android.content.Context;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.az.testing.api.ApiService;
@@ -28,7 +29,7 @@ public class BaseTest {
 
     @Before
     public void setUp() throws Exception {
-        context = TestingApplication.INSTANCE.getApplicationContext();
+        context = InstrumentationRegistry.getTargetContext();
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
@@ -37,5 +38,13 @@ public class BaseTest {
                 .build();
         apiService = retrofit.create(ApiService.class);
         prefManager = new PrefManager(context);
+        SomeClass someClass = new SomeClass();
+        someClass.setUp();
+    }
+
+    class SomeClass{
+        public void setUp(){
+
+        }
     }
 }

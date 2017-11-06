@@ -25,12 +25,12 @@ public class Repository {
         this.prefManager = prefManager;
     }
 
-    public Observable<ProfileResponse> getUser(int imageDensity) {
-        return apiManager.getUser(imageDensity);
-    }
-
     public Observable<LoginResponse> login(LoginRequest request) {
         return apiManager.login(request);
+    }
+
+    public Observable<ProfileResponse> getUser(int imageDensity) {
+        return apiManager.getUser(imageDensity);
     }
 
     public Observable<CarsResponse> getCars(int imageDensity, int limit, int offset) {

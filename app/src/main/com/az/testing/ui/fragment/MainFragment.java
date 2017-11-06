@@ -61,6 +61,7 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter> implements
         return fragment;
     }
 
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
