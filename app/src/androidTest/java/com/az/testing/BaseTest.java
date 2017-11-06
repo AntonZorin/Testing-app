@@ -38,13 +38,5 @@ public class BaseTest {
                 .build();
         apiService = retrofit.create(ApiService.class);
         prefManager = new PrefManager(context);
-        SomeClass someClass = new SomeClass();
-        someClass.setUp();
-    }
-
-    class SomeClass{
-        public void setUp(){
-
-        }
     }
 }

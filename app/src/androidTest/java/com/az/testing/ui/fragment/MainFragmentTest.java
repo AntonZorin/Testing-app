@@ -1,8 +1,11 @@
 package com.az.testing.ui.fragment;
 
 import com.az.testing.BaseTest;
+import com.az.testing.mvp.model.Car;
 
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNotNull;
@@ -35,8 +38,9 @@ public class MainFragmentTest extends BaseTest {
     @Test
     public void assertCarsListNotEmpty() {
         apiService.getCars(prefManager.getToken(), 0, 100, 0).subscribe(response -> {
-            assertTrue(response.getCars().size() > 0);
-            assertTrue(response.getCars().get(0).getImage() instanceof String);
+            List<Car> cars = response.getCars();
+            assertTrue(cars.size() > 0);
+            assertTrue(cars.get(0).getImage() instanceof String);
         });
     }
 }

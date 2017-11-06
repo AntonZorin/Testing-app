@@ -17,9 +17,8 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
-import static org.hamcrest.Matchers.is;
+import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
 
 /**
  * Created by zorin.a on 02.11.2017.
@@ -39,6 +38,7 @@ public class MainActivityTest extends BaseTest {
                 Log.v(MainActivity.class.getSimpleName(), "stage name: " + stage.name());
             }
         });
+
     }
 
     @Test
@@ -54,12 +54,17 @@ public class MainActivityTest extends BaseTest {
     }
 
     @Test
-    public void assertloginNotNull() {
+    public void assertLoginNotNull() {
         LoginRequest request = new LoginRequest();
         request.setLogin("Ivanov");
         request.setPassword("3as24sd2");
+
         apiService.login(request).subscribe(result -> {
-            assertNotNull("TokenTest", result.getToken());
+            assertNotNull(result.getToken());
+            assertTrue(!result.getToken().isEmpty());
+            if (!result.getToken().isEmpty()) {
+                prefManager.seveToken(result.getToken());
+            }
         });
     }
 
